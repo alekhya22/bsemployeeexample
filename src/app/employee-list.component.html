@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <style> .equal-width td {   width: 50%; } </style>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body class="co">
+<div align="center">
+    <h1>Employees List</h1>
+    <h3>Click on the table column headings to order</h3>
+    <table border="2" class="equal-width">
+        <tr>
+            <td (click)="sort('id')">id</td>
+            <td (click)="sort('name')">name</td>
+            <td>Operation</td>
+        </tr>
+        
+        <tr *ngFor="let index of emp |orderBy:column:order">
+            <td height="20px">{{index.id}}</td>
+            <td height="20px">{{index.name}}</td>
+           
+         <td height="20px"><button (click)="delete(index.id)" type="button" class="btn btn-warning">delete</button></td>
+        <td height="20px"><button type="button" class="btn btn-primary"(click)="updateData()">Update</button></td>
+        </tr>
+    </table><br>
+    <div align="center" *ngIf=!isUpdate>
+        <form #upd="ngForm" (ngSubmit)="update(upd.value)">
+            <table border="2">
+                <tr>
+                    <td height="20px">id</td>
+                    <td height="20px">name</td>
+                </tr>
+                <tr>
+                    <td height="20px"><input type="text" name="id" ngModel/></td>
+                <td height="20px"><input type="text" name="name" ngModel/></td>
+                </tr>
+            </table><br>
+            <input type="submit" value="Update"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

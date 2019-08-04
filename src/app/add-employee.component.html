@@ -1,0 +1,19 @@
+<form #details="ngForm" (ngSubmit)="add(details.value)">
+    <div>
+        <span>
+            Id
+        </span>
+        <input type="text" name="eid" ngModel>
+
+    </div>
+    <div>
+        <span>
+            Name
+        </span>
+        <input type="text" name="ename" ngModel>
+    </div>
+    <input type="submit" value="Add Employee">
+</form>
+<div *ngIf="createdFlag;">
+    Created user={{createdEmployee.id}} {{createdEmployee.name}}
+</div>

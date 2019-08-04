@@ -1,0 +1,23 @@
+<h2>SearchEmployee</h2>
+<html>
+  <head>
+    <style> .equal-width th {   width: 70%; } </style>
+  </head>
+  <body>
+<form #searchForm="ngForm" (ngSubmit)="search(searchForm.value)">
+    Id:<input type="text" [(ngModel)]="this.id" name="id" ngModel>
+    <input type="submit" value="Search">
+</form>
+
+<table border="1" class="equal-width">
+    <tr>
+        <th>Id</th>
+        <th >Name</th>
+    </tr>
+    <tr *ngFor="let e of emp">
+        <td>{{e.id}}</td>
+        <td>{{e.name}}</td>
+    </tr>
+</table>
+  </body>
+</html>
